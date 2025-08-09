@@ -1,9 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <title>IFET Coders Hackathon • IFET College of Engineering</title>
-  <link rel="icon" href="img/date.png">
-  <meta name="description" content="IFET Coders — A hackathon for software & hardware innovators. Schedule, speakers, registration and ideas showcase." />
+  <link rel="icon" href="./img/date.png">
   <style>
     /* Reset & base */
     :root{
@@ -90,7 +89,7 @@
 
     <header>
       <div class="brand">
-        <div class="logo">Infinite</div>
+        <div class="logo">Infinity</div>
         <div>
           <h1>IFET Coders • Hackathon</h1>
           <div class="small muted">Sep 30 • IFET College of Engineering • Online</div>
@@ -120,6 +119,9 @@
             <span class="badge">Teams of up to 4</span>
             <span class="badge">Online — Zoom + GitHub</span>
             <span class="badge">Prizes for top 3</span>
+          </div>
+          <div style="margin-top:18px; font-size: 1.2em; font-weight: bold; color: #ffcc00;" id="countdown">
+           Countdown to Event: Loading...
           </div>
 
           <div style="margin-top:18px" class="mb12 muted">Focus areas: Web apps, Data tools, Embedded + IoT demos, and Product ideas.</div>
@@ -311,11 +313,39 @@
     </main>
 
     <footer>
-      <div class="small muted">© IFET Coders • IFET College of Engineering — Designed with Enthusiasm✨🪄</div>
+      <div class="small muted">© IFET Coders • IFET College of Engineering — Designed with ❤️</div>
       <div class="small muted">Questions? Contact: studentcell@ifet.edu.in</div>
     </footer>
 
+
   </div>
+  <script>
+  // Countdown Timer
+  const eventDate = new Date("Sep 30, 2025 10:00:00").getTime();
+  const timer = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+      `Countdown to Event: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "The Event is Live!";
+    }
+  }, 1000);
+
+  // Smooth Scroll for Register Button
+  document.querySelector('a[href="#register"]').addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector("#register").scrollIntoView({ behavior: "smooth" });
+  });
+</script>
+
 </body>
 </html>
-
