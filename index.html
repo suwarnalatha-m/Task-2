@@ -1,1 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>IFET Coders Hackathon • IFET College of Engineering</title>
+  <link rel="icon" href="./img/date.png">
+  <meta name="description" content="IFET Coders — A hackathon for software & hardware innovators. Schedule, speakers, registration and ideas showcase." />
+  <style>
+    /* Reset & base */
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#3ddc97; --accent-2:#6ea8fe;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px; --maxw:1100px; --ff: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0; font-family:var(--ff); background:linear-gradient(180deg,#071028 0%, #081226 60%); color:#e6eef6;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; line-height:1.45;
+      padding:32px 20px;
+      display:flex; justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--maxw);} 
+
+    /* Header / Hero */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:60px;height:60px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#052024}
+    .brand h1{font-size:18px;margin:0}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+    nav a:hover{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin:22px 0 40px}
+    @media(max-width:880px){.hero{grid-template-columns:1fr;}}
+
+    .card{background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.02));border-radius:var(--radius);padding:22px;box-shadow:0 6px 24px rgba(2,8,23,0.6)}
+    .hero-left h2{margin:0 0 8px;font-size:28px}
+    .kicker{color:var(--accent);font-weight:600;font-size:13px;letter-spacing:0.6px}
+    .lead{color:var(--muted);margin-top:12px}
+    .ctas{display:flex;gap:12px;margin-top:18px}
+    .btn{padding:10px 16px;border-radius:10px;background:var(--accent);color:#042825;text-decoration:none;font-weight:600}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent-2)}
+
+    .hero-right{display:flex;flex-direction:column;gap:12px}
+    .stat{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px;border-radius:12px;background:var(--glass)}
+    .stat strong{font-size:20px}
+    .stat small{color:var(--muted)}
+
+    /* Sections */
+    section{margin-bottom:26px}
+    h3{margin:0 0 12px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:880px){.grid-3{grid-template-columns:1fr}}
+
+    /* Speakers */
+    .speaker{display:flex;gap:14px;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015))}
+    .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#3358ff,#7be0b9);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .smeta small{color:var(--muted)}
+
+    /* Schedule */
+    .schedule{display:grid;gap:10px}
+    .slot{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+    .time{min-width:92px;color:var(--muted);font-weight:600}
+
+    /* Registration form (design only) */
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+    label{display:block;font-size:13px;margin-bottom:6px}
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .small{font-size:13px;color:var(--muted)}
+    .muted{color:var(--muted)}
+
+    /* Footer */
+    footer{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:20px;color:var(--muted)}
+    @media(max-width:680px){footer{flex-direction:column;align-items:flex-start}}
+
+    /* Tiny animations */
+    .pulse{animation:pulse 3s ease-in-out infinite}
+    @keyframes pulse{0%{transform:translateY(0)}50%{transform:translateY(-4px)}100%{transform:translateY(0)}}
+
+    /* badges */
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted)}
+
+    /* utilities */
+    .mb12{margin-bottom:12px}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brand">
+        <div class="logo">Infinite</div>
+        <div>
+          <h1>IFET Coders • Hackathon</h1>
+          <div class="small muted">Sep 30 • IFET College of Engineering • Online</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#register">Register</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero card">
+        <div class="hero-left">
+          <div class="kicker">Hack & Build • Learn • Win Prizes</div>
+          <h2>IFET Coders — Campus Hackathon for Software & Hardware Innovators</h2>
+          <p class="lead">One-day online hackathon to prototype ideas, build mini-demos, and connect with mentors experienced on coding platforms. Open to students from every department — software or hardware background.</p>
+
+          <div class="ctas">
+            <a class="btn" href="#register">Register Now</a>
+            <a class="btn ghost" href="#schedule">See Schedule</a>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+            <span class="badge">Teams of up to 4</span>
+            <span class="badge">Online — Zoom + GitHub</span>
+            <span class="badge">Prizes for top 3</span>
+          </div>
+
+          <div style="margin-top:18px" class="mb12 muted">Focus areas: Web apps, Data tools, Embedded + IoT demos, and Product ideas.</div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="stat">
+            <div>
+              <small class="muted">Start</small>
+              <div><strong>10:00 AM</strong></div>
+            </div>
+            <div class="muted">Sep 30</div>
+          </div>
+
+          <div class="stat pulse">
+            <div>
+              <small class="muted">Duration</small>
+              <div><strong>8 hours</strong></div>
+            </div>
+            <div class="muted">Online</div>
+          </div>
+
+          <div class="stat">
+            <div>
+              <small class="muted">Mentors</small>
+              <div><strong>Industry & Campus</strong></div>
+            </div>
+            <div class="muted">Live Q&A</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="card">
+        <h3>About the Event</h3>
+        <p class="muted">IFET Coders is a one-day event to encourage cross-discipline collaboration. Teams can present software projects or hardware prototypes. Judges value working demos, clear problem statements, and scalability. Students with profiles on coding platforms (CodeChef, HackerRank, GitHub) are encouraged to mention them during registration.</p>
+      </section>
+
+      <section id="schedule" class="card">
+        <h3>Schedule</h3>
+        <div class="schedule">
+          <div class="slot">
+            <div class="time">10:00 - 10:30</div>
+            <div>
+              <strong>Opening & Idea Pitches</strong>
+              <div class="muted">Welcome note, rules & lightning pitch round</div>
+            </div>
+          </div>
+
+          <div class="slot">
+            <div class="time">10:30 - 13:30</div>
+            <div>
+              <strong>Build Session — Round 1</strong>
+              <div class="muted">Mentor breakout rooms available</div>
+            </div>
+          </div>
+
+          <div class="slot">
+            <div class="time">13:30 - 14:30</div>
+            <div>
+              <strong>Lunch & Lightning Talks</strong>
+              <div class="muted">Short talks: web dev tips, hardware prototyping, product thinking</div>
+            </div>
+          </div>
+
+          <div class="slot">
+            <div class="time">14:30 - 17:00</div>
+            <div>
+              <strong>Build Session — Round 2</strong>
+              <div class="muted">Finalise demos, prepare 5-minute presentation</div>
+            </div>
+          </div>
+
+          <div class="slot">
+            <div class="time">17:00 - 18:30</div>
+            <div>
+              <strong>Demo & Judging</strong>
+              <div class="muted">Each team gets 5 minutes + 3 minutes Q&A</div>
+            </div>
+          </div>
+
+          <div class="slot">
+            <div class="time">18:30 - 19:00</div>
+            <div>
+              <strong>Winners Announcement</strong>
+              <div class="muted">Prize distribution and closing</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="speakers" class="card">
+        <h3>Mentors & Judges</h3>
+        <div class="grid-3">
+          <div class="speaker">
+            <div class="avatar">AS</div>
+            <div>
+              <strong>A. Suresh</strong>
+              <div class="smeta small muted">Senior Developer • Fullstack & Embedded</div>
+              <div class="small muted">Active on GitHub — contributor to IoT projects.</div>
+            </div>
+          </div>
+
+          <div class="speaker">
+            <div class="avatar">RK</div>
+            <div>
+              <strong>R. Kumar</strong>
+              <div class="smeta small muted">Product Designer • Startup Mentor</div>
+              <div class="small muted">Focus on product-market fit & prototyping.</div>
+            </div>
+          </div>
+
+          <div class="speaker">
+            <div class="avatar">MP</div>
+            <div>
+              <strong>M. Priya</strong>
+              <div class="smeta small muted">Algorithmic Trainer</div>
+              <div class="small muted">Helps candidates sharpen coding platform skills.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="register" class="card">
+        <h3>Registration (Design only)</h3>
+        <p class="muted">Fill the form to register. (This is a static design — no backend included.)</p>
+
+        <form class="mb12">
+          <div class="form-grid">
+            <div>
+              <label for="name">Team Lead Name</label>
+              <input id="name" placeholder="Your full name" />
+            </div>
+
+            <div>
+              <label for="email">Contact Email</label>
+              <input id="email" type="email" placeholder="you@example.com" />
+            </div>
+
+            <div>
+              <label for="college">College / Institution</label>
+              <input id="college" placeholder="IFET College of Engineering" />
+            </div>
+
+            <div>
+              <label for="platforms">Coding Profiles</label>
+              <input id="platforms" placeholder="GitHub / CodeChef / HackerRank links" />
+            </div>
+
+            <div style="grid-column:1/3">
+              <label for="idea">Short Idea / Project (50-70 words)</label>
+              <textarea id="idea" rows="4" placeholder="Problem, approach, what you will build"></textarea>
+            </div>
+
+            <div>
+              <label for="members">Team Members (names & roles)</label>
+              <input id="members" placeholder="Alice (FE), Bob (Hardware)" />
+            </div>
+
+            <div>
+              <label for="type">Project Type</label>
+              <select id="type">
+                <option>Software — Web / Mobile</option>
+                <option>Hardware — Embedded / IoT</option>
+                <option>Hybrid — Software + Hardware</option>
+                <option>Data / ML</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#">Download Template</a>
+            <a class="btn ghost" href="#">Submit (Mock)</a>
+          </div>
+        </form>
+
+        <p class="small muted">Tip: Mention your coding platform links to help mentors quickly assess your experience. Short, clear idea descriptions increase your chance to get mentor time.</p>
+      </section>
+
+      <section class="card">
+        <h3>How to Present (Quick Guide)</h3>
+        <ul class="muted">
+          <li>Describe the problem & target users in 30 seconds.</li>
+          <li>Show the working demo or screenshots; explain the core flow.</li>
+          <li>Highlight what you built and what’s left to scale.</li>
+          <li>If hardware involved, demonstrate the data pipeline & UI, not just the circuit.</li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="small muted">© IFET Coders • IFET College of Engineering — Designed with Enthusiasm✨🪄</div>
+      <div class="small muted">Questions? Contact: studentcell@ifet.edu.in</div>
+    </footer>
+
+  </div>
+</body>
+</html>
 
